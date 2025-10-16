@@ -1,0 +1,15 @@
+<ion-app>
+  <!-- @if (showHeader) {
+  <ion-header class="app-page no-style">
+    <app-details-header [home]="isHome"></app-details-header>
+  </ion-header>
+  } -->
+  <ion-content>
+    <ion-router-outlet class="app-page"></ion-router-outlet>
+  </ion-content>
+  @if (showNavBar) {
+  <ion-footer>
+    <app-nav-bar></app-nav-bar>
+  </ion-footer>
+  }
+</ion-app>

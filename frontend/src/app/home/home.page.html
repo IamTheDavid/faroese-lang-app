@@ -1,0 +1,83 @@
+<ion-content [fullscreen]="true" class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+  <div class="text-center px-6 py-8">
+    <!-- Welcome Card -->
+    <div class="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-6 mb-8 shadow-2xl border border-slate-600">
+      <div class="mb-4">
+        <div class="text-6xl mb-2">🇫🇴</div>
+        <h2 class="text-2xl font-bold text-slate-100 mb-2">Welcome to the Faroese Learning App!</h2>
+        <p class="text-slate-300">Master the beautiful Faroese language with fun, interactive games!</p>
+      </div>
+    </div>
+
+    <!-- Game Cards -->
+    <div class="space-y-4 max-w-md mx-auto">
+      <button 
+        routerLink="/quiz" 
+        class="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-400 hover:to-green-500 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-green-500/25 hover:scale-105 active:scale-95 border border-green-400/30">
+        <div class="flex items-center justify-center space-x-3">
+          <span class="text-2xl">📝</span>
+          <div class="text-left">
+            <div class="font-bold">Sentence Matching</div>
+            <div class="text-sm text-green-100 opacity-90">Match and learn sentences</div>
+          </div>
+        </div>
+      </button>
+
+      <button 
+        routerLink="/word-game" 
+        class="w-full bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-teal-500/25 hover:scale-105 active:scale-95 border border-teal-400/30">
+        <div class="flex items-center justify-center space-x-3">
+          <span class="text-2xl">🔤</span>
+          <div class="text-left">
+            <div class="font-bold">Word Selection</div>
+            <div class="text-sm text-teal-100 opacity-90">Match and learn words</div>
+          </div>
+        </div>
+      </button>
+
+      <button 
+        routerLink="/translation-game" 
+        class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-blue-500/25 hover:scale-105 active:scale-95 border border-blue-400/30">
+        <div class="flex items-center justify-center space-x-3">
+          <span class="text-2xl">✍️</span>
+          <div class="text-left">
+            <div class="font-bold">Translation Challenge</div>
+            <div class="text-sm text-blue-100 opacity-90">Type translations</div>
+          </div>
+        </div>
+      </button>
+
+      <button 
+        routerLink="/scoreboard" 
+        class="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-amber-500/25 hover:scale-105 active:scale-95 border border-amber-400/30">
+        <div class="flex items-center justify-center space-x-3">
+          <span class="text-2xl">📊</span>
+          <div class="text-left">
+            <div class="font-bold">Scoreboard</div>
+            <div class="text-sm text-amber-100 opacity-90">View your progress</div>
+          </div>
+        </div>
+      </button>
+    </div>
+
+    <!-- Fun Facts Section -->
+    <div class="mt-8 bg-slate-700/50 backdrop-blur-sm rounded-xl p-4 border border-slate-600">
+      <div class="text-green-400 text-sm font-medium mb-1">💡 Did you know?</div>
+      <div class="text-slate-300 text-sm">Faroese is spoken by about 80,000 people and has its own unique alphabet!</div>
+    </div>
+
+    <!-- Login/Register Section -->
+    <div class="mt-6 flex justify-center space-x-4">
+      <button 
+        routerLink="/login"
+        class="bg-slate-700/70 hover:bg-slate-600 text-slate-200 font-medium py-2 px-4 rounded-xl border border-slate-600 transition-all duration-200 hover:scale-105 active:scale-95 text-sm">
+        Sign In
+      </button>
+      <button 
+        routerLink="/register"
+        class="bg-green-700/70 hover:bg-green-600 text-green-200 font-medium py-2 px-4 rounded-xl border border-green-600 transition-all duration-200 hover:scale-105 active:scale-95 text-sm">
+        Sign Up
+      </button>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,82 @@
+<ion-content class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+  <!-- Loading State -->
+  <app-loading 
+    *ngIf="isLoading" 
+    message="Loading question..." 
+    icon="📝">
+  </app-loading>
+
+  <!-- Quiz Content -->
+  <div class="max-w-2xl mx-auto px-6 py-4 flex flex-col gap-4 flex-1 justify-center" *ngIf="!quizComplete && !isLoading && currentPhrase">
+    <!-- Progress Header -->
+    <div class="flex justify-between text-base text-gray-300 bg-slate-700/70 backdrop-blur-sm rounded-xl p-4 border border-slate-600">
+      <div class="flex items-center space-x-2">
+        <span class="text-green-400">📝</span>
+        <span>Question {{ questionCount }} / {{ maxQuestions }}</span>
+      </div>
+      <div class="flex items-center space-x-2 font-semibold">
+        <span class="text-green-400">⭐</span>
+        <span class="text-green-300">{{ correctCount }}</span>
+      </div>
+    </div>
+
+    <!-- Question Card -->
+    <div class="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-8 shadow-xl border border-slate-600">
+      <div class="text-center">
+        <div class="text-green-400 text-sm font-medium mb-2">Translate to Faroese:</div>
+        <h2 class="text-2xl font-bold text-gray-100 leading-relaxed">
+          {{ currentPhrase.en }}
+        </h2>
+      </div>
+    </div>
+
+    <!-- Options -->
+    <div class="flex flex-col gap-4">
+      <button
+        *ngFor="let option of options"
+        (click)="checkAnswer(option)"
+        class="w-full bg-slate-700/70 hover:bg-slate-600 text-gray-200 font-medium py-4 px-6 rounded-xl border-2 border-slate-600 hover:border-green-500 transition-all duration-200 shadow-lg hover:shadow-green-500/20 backdrop-blur-sm hover:scale-[1.02] active:scale-95"
+      >
+        {{ option }}
+      </button>
+    </div>
+
+    <!-- Feedback -->
+    <div *ngIf="feedback" class="text-center text-lg font-medium mt-4 p-6 rounded-2xl border backdrop-blur-sm" 
+         [class]="wrongAnswer ? 'bg-red-900/50 text-red-300 border-red-700' : 'bg-green-900/50 text-green-300 border-green-600'">
+      <div class="flex items-center justify-center space-x-2">
+        <span class="text-2xl">{{ wrongAnswer ? '❌' : '✅' }}</span>
+        <span>{{ feedback }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Completion Screen -->
+  <div *ngIf="quizComplete" class="text-center px-6 py-4 flex items-center justify-center flex-1">
+    <div class="max-w-md mx-auto bg-gradient-to-br from-slate-800 to-slate-700 backdrop-blur-sm rounded-3xl p-6 shadow-2xl border border-slate-600">
+      <div class="text-6xl mb-4">🎉</div>
+      <h2 class="text-3xl font-bold text-gray-100 mb-4">Quiz Complete!</h2>
+      <div class="bg-green-900/50 rounded-xl p-4 mb-6 border border-green-700">
+        <p class="text-xl text-green-300 font-semibold">
+          Score: {{ correctCount }} / {{ maxQuestions }}
+        </p>
+        <div class="mt-2">
+          <div class="text-sm text-gray-400">
+            {{ correctCount === maxQuestions ? 'Perfect! 🌟' : 
+                correctCount >= maxQuestions * 0.8 ? 'Great job! 👏' : 
+                correctCount >= maxQuestions * 0.6 ? 'Good effort! 👍' : 
+                'Keep practicing! 💪' }}
+          </div>
+        </div>
+      </div>
+      <button 
+        (click)="restartQuiz()" 
+        class="w-full bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-green-500/25 hover:scale-105 active:scale-95 border border-green-400/30">
+        <div class="flex items-center justify-center space-x-2">
+          <span>🔄</span>
+          <span>Try Again</span>
+        </div>
+      </button>
+    </div>
+  </div>
+</ion-content>

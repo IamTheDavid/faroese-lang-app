@@ -1,0 +1,116 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Tailwind CSS - Using v3 syntax for better Angular compatibility */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Optional: Keep normalize for consistent cross-browser styling */
+@import "@ionic/angular/css/normalize.css";
+
+@layer base {
+    :root {
+        --dark-900: #0f172a;
+        --dark-800: #1e293b;
+        --dark-700: #334155;
+        --dark-600: #475569;
+        --primary-500: #22c55e;
+        --primary-600: #16a34a;
+        --primary-700: #15803d;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html,
+    body {
+        background: #0f172a;
+        color: #e2e8f0;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-family: system-ui, -apple-system, sans-serif;
+        height: 100vh !important;
+    }
+
+    ion-app {
+        margin: 0 auto;
+        padding: 0;
+        width: 100%;
+        max-width: 1280px;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+    }
+
+    ion-content {
+        --background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+        --padding-top: 0 !important;
+        --padding-bottom: 0 !important;
+        --padding-start: 0 !important;
+        --padding-end: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        flex: 1 !important;
+        height: 100% !important;
+        max-height: 100% !important;
+        overflow: auto !important;
+    }
+
+    /* Apply safe area padding to prevent phantom scrollbars */
+    ion-content::part(scroll) {
+        padding-top: var(--ion-safe-area-top, 0);
+        padding-bottom: var(--ion-safe-area-bottom, 0);
+        padding-left: var(--ion-safe-area-left, 0);
+        padding-right: var(--ion-safe-area-right, 0);
+        box-sizing: border-box;
+    }
+
+    ion-footer {
+        --background: transparent !important;
+        --padding-top: 0 !important;
+        --padding-bottom: 0 !important;
+        --padding-start: 0 !important;
+        --padding-end: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        flex-shrink: 0 !important;
+    }
+}
+
+/* Force dark theme on Ionic components */
+ion-header,
+ion-toolbar,
+ion-title {
+    --background: rgba(15, 23, 42, 0.9) !important;
+    --color: #e2e8f0 !important;
+}
+
+/* Remove default Ionic button styling to use Tailwind */
+ion-button {
+    --background: transparent;
+    --color: inherit;
+    --border-radius: 0;
+    --box-shadow: none;
+    --ripple-color: transparent;
+}
+
+ion-content::part(scroll) {
+    max-height: 100% !important;
+    overflow-y: auto !important;
+}

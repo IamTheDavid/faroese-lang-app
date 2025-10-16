@@ -1,0 +1,11 @@
+**/bin/
+**/obj/
+**/.vs/
+**/.vscode/
+**/node_modules/
+**/www/
+**/.angular/
+**/.DS_Store
+**/Thumbs.db
+Api/appsettings.Development.json
+Api/appsettings.Local.json

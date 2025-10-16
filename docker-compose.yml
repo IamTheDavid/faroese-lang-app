@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Api/Dockerfile
+    container_name: faroese-api
+    restart: unless-stopped
+    environment:
+      - ASPNETCORE_URLS=http://+:8080
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_FORWARDEDHEADERS_ENABLED=true
+    ports:
+      - "127.0.0.1:8082:8080"
+    volumes:
+      - ./Api/appsettings.Production.json:/app/appsettings.Production.json:ro
+
+  web:
+    build:
+      context: ./frontend
+    container_name: faroese-web
+    restart: unless-stopped
+    depends_on:
+      - api
+    ports:
+      - "127.0.0.1:8081:80"
